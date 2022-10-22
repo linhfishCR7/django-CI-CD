@@ -25,8 +25,29 @@ SECRET_KEY = 'django-insecure-e4pxb(2!ess_52=v$vq4g3w1k&zj7^d1=2hzk0jyzz8l-x-8f-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '*'
+]
 
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = (
+    # '127.0.0.1:4000',
+    # '127.0.0.1:4200',
+    # '127.0.0.1:4201',
+    # '127.0.0.1:4202',
+    # '127.0.0.1:3000',
+    # 'localhost:4200',
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+    'http://127.0.0.1:4000',
+    'http://localhost:4000',
+    'http://localhost:4201',
+    'http://127.0.0.1:4201',
+    'http://localhost:4201',
+    'http://127.0.0.1:4200',
+    'http://localhost:4200',
+    'https://django-ci-cd-123.herokuapp.com',
+)
 
 # Application definition
 
@@ -37,6 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +69,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'perfect.urls'
